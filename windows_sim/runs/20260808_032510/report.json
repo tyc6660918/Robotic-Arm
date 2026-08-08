@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-08-08T03:25:22",
+  "metadata": {
+    "offline_only": true,
+    "serial_access": false,
+    "scenario": "tremor",
+    "control_rate_hz": 100.0,
+    "filter_enabled": true
+  },
+  "metrics": {
+    "samples_written": 3120,
+    "position_error_rms_m": 0.0007157566598027099,
+    "orientation_error_rms_rad": 0.008703112140106458,
+    "position_error_max_m": 0.005802872441489518,
+    "orientation_error_max_rad": 0.07141560547146128,
+    "ik_success_rate": 0.9996794871794872,
+    "cycle_period_p50_s": 0.003264799997850787,
+    "cycle_period_p99_s": 0.01882473999605281,
+    "state_sample_counts": {
+      "READY": 99,
+      "TELEOP": 111,
+      "HOLD": 2910
+    },
+    "scenario_finished": true,
+    "accepted_plant_commands": 3120,
+    "dropped_plant_commands": 0,
+    "dropped_feedback_samples": 0
+  },
+  "csv": "teleop_samples.csv"
+}

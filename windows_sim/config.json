@@ -1,0 +1,57 @@
+{
+  "dummy_urdf": "../Moveit_ws-main/dummy-ros2_description/urdf/dummy.urdf",
+  "openrst_urdf": "../OpenRST-main/URDF/openrst_description/urdf/openrst.urdf",
+  "control_rate_hz": 100.0,
+  "render_rate_hz": 60.0,
+  "trajectory_max_points": 600,
+  "translation_scale": 0.3,
+  "rotation_scale": 0.5,
+  "master_to_slave_axis_map": [
+    [1.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0],
+    [0.0, 0.0, 1.0]
+  ],
+  "initial_joints_deg": [0.0, -30.0, 45.0, 0.0, 30.0, 0.0],
+  "input_timeout_s": 0.05,
+  "limits": {
+    "max_linear_velocity_m_s": 0.08,
+    "max_angular_velocity_rad_s": 0.8,
+    "max_linear_acceleration_m_s2": 0.35,
+    "max_angular_acceleration_rad_s2": 3.0
+  },
+  "filter": {
+    "enabled": true,
+    "min_cutoff_hz": 1.65,
+    "beta": 0.01,
+    "derivative_cutoff_hz": 1.0
+  },
+  "plant": {
+    "response_time_s": 0.08,
+    "max_joint_velocity_rad_s": 1.0,
+    "max_joint_target_velocity_rad_s": 0.6,
+    "max_joint_acceleration_rad_s2": 4.0,
+    "max_joint_jerk_rad_s3": 30.0,
+    "command_delay_s": 0.0,
+    "feedback_noise_std_rad": 0.0,
+    "dropout_probability": 0.0,
+    "feedback_timeout_s": 0.05,
+    "max_joint_tracking_error_rad": 0.12,
+    "tracking_error_timeout_s": 0.5,
+    "stall_error_threshold_rad": 0.015,
+    "stall_motion_threshold_rad": 0.001,
+    "stall_timeout_s": 0.3,
+    "random_seed": 7
+  },
+  "openrst": {
+    "pitch_limit_deg": 90.0,
+    "yaw_limit_deg": 90.0,
+    "shaft_length_m": 0.28,
+    "jaw_length_m": 0.03,
+    "max_jaw_opening_deg": 60.0
+  },
+  "logging": {
+    "output_directory": "runs",
+    "csv_name": "teleop_samples.csv",
+    "report_name": "report.json"
+  }
+}

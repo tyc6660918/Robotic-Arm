@@ -1,0 +1,14 @@
+{
+  "name": "figure_eight",
+  "type": "parametric",
+  "shape": "figure_eight",
+  "duration_s": 20.0,
+  "warmup_s": 1.0,
+  "radius_m": 0.04,
+  "frequency_hz": 0.1,
+  "plane": "xy",
+  "center_m": [0.0, 0.0, 0.0],
+  "rpy_amplitude_deg": [5.0, 8.0, 10.0],
+  "grasp": 0.5,
+  "deadman": true
+}

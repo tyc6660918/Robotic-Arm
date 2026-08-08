@@ -1,0 +1,14 @@
+{
+  "name": "tremor",
+  "type": "parametric",
+  "shape": "tremor",
+  "duration_s": 30.0,
+  "warmup_s": 1.0,
+  "intentional_frequency_hz": 0.5,
+  "intentional_amplitude_m": 0.03,
+  "tremor_frequency_hz": 10.0,
+  "tremor_amplitude_m": 0.001,
+  "axis": "x",
+  "grasp": 0.5,
+  "deadman": true
+}

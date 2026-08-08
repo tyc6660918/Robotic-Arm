@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-08-08T03:17:47",
+  "metadata": {
+    "offline_only": true,
+    "serial_access": false,
+    "scenario": "axis_steps",
+    "control_rate_hz": 100.0,
+    "filter_enabled": true
+  },
+  "metrics": {
+    "samples_written": 154,
+    "position_error_rms_m": 0.0005987072387775829,
+    "orientation_error_rms_rad": 0.013953894655362523,
+    "position_error_max_m": 0.0016278066935117943,
+    "orientation_error_max_rad": 0.03495702621757917,
+    "ik_success_rate": 1.0,
+    "cycle_period_p50_s": 0.010049800002889242,
+    "cycle_period_p99_s": 0.04082251999672734,
+    "state_sample_counts": {
+      "READY": 100,
+      "TELEOP": 54
+    },
+    "scenario_finished": false,
+    "accepted_plant_commands": 154,
+    "dropped_plant_commands": 0,
+    "dropped_feedback_samples": 0
+  },
+  "csv": "teleop_samples.csv"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "soak_60min",
+  "type": "parametric",
+  "shape": "figure_eight",
+  "duration_s": 3600.0,
+  "warmup_s": 1.0,
+  "radius_m": 0.03,
+  "frequency_hz": 0.02,
+  "plane": "xy",
+  "center_m": [0.0, 0.0, 0.0],
+  "rpy_amplitude_deg": [3.0, 5.0, 8.0],
+  "grasp": 0.5,
+  "deadman": true
+}

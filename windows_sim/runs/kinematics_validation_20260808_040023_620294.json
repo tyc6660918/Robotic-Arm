@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-08-08T04:00:23",
+  "metadata": {
+    "offline_only": true,
+    "serial_access": false,
+    "sample_count": 100,
+    "seed": 20260808,
+    "singular_value_threshold": 0.0001,
+    "python_stack": {
+      "numpy": "2.4.3",
+      "scipy": "1.17.1"
+    }
+  },
+  "metrics": {
+    "generated_samples": 100,
+    "skipped_singular_samples": 0,
+    "successful_samples": 100,
+    "success_rate": 1.0,
+    "maximum_position_error_m": 1.3629091827863702e-05,
+    "maximum_orientation_error_rad": 2.0384916233864345e-06,
+    "solve_time_p50_s": 0.01329529999929946,
+    "solve_time_p99_s": 0.13674368499356224,
+    "total_time_s": 2.4793386999954237,
+    "acceptance": {
+      "success_rate_at_least_99_percent": true,
+      "position_error_under_0_1_mm": true,
+      "orientation_error_under_0_05_deg": true
+    }
+  },
+  "failure_examples": []
+}

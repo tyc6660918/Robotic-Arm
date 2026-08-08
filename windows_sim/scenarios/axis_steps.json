@@ -1,0 +1,18 @@
+{
+  "name": "axis_steps",
+  "type": "keyframes",
+  "duration_s": 24.0,
+  "keyframes": [
+    {"time_s": 0.0, "position_m": [0.0, 0.0, 0.0], "rpy_deg": [0.0, 0.0, 0.0], "grasp": 0.0, "deadman": false, "clutch": false},
+    {"time_s": 1.0, "position_m": [0.0, 0.0, 0.0], "rpy_deg": [0.0, 0.0, 0.0], "grasp": 0.0, "deadman": true, "clutch": false},
+    {"time_s": 3.0, "position_m": [0.05, 0.0, 0.0], "rpy_deg": [0.0, 0.0, 0.0], "grasp": 0.0, "deadman": true, "clutch": false},
+    {"time_s": 5.0, "position_m": [0.0, 0.05, 0.0], "rpy_deg": [0.0, 0.0, 0.0], "grasp": 0.0, "deadman": true, "clutch": false},
+    {"time_s": 7.0, "position_m": [0.0, 0.0, 0.05], "rpy_deg": [0.0, 0.0, 0.0], "grasp": 0.0, "deadman": true, "clutch": false},
+    {"time_s": 10.0, "position_m": [0.0, 0.0, 0.0], "rpy_deg": [20.0, 0.0, 0.0], "grasp": 0.0, "deadman": true, "clutch": false},
+    {"time_s": 13.0, "position_m": [0.0, 0.0, 0.0], "rpy_deg": [0.0, 20.0, 0.0], "grasp": 0.0, "deadman": true, "clutch": false},
+    {"time_s": 16.0, "position_m": [0.0, 0.0, 0.0], "rpy_deg": [0.0, 0.0, 20.0], "grasp": 0.5, "deadman": true, "clutch": false},
+    {"time_s": 19.0, "position_m": [0.08, 0.0, 0.0], "rpy_deg": [0.0, 0.0, 20.0], "grasp": 1.0, "deadman": true, "clutch": true},
+    {"time_s": 21.0, "position_m": [0.08, 0.0, 0.0], "rpy_deg": [0.0, 0.0, 20.0], "grasp": 1.0, "deadman": true, "clutch": false},
+    {"time_s": 24.0, "position_m": [0.08, 0.0, 0.0], "rpy_deg": [0.0, 0.0, 20.0], "grasp": 1.0, "deadman": false, "clutch": false}
+  ]
+}

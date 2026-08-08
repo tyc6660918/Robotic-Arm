@@ -1,0 +1,33 @@
+{
+  "name": "fault_injection",
+  "type": "faults",
+  "duration_s": 30.0,
+  "base_motion": {
+    "shape": "circle",
+    "radius_m": 0.03,
+    "frequency_hz": 0.1,
+    "plane": "xy"
+  },
+  "events": [
+    {"time_s": 4.0, "duration_s": 0.4, "fault": "input_dropout"},
+    {"time_s": 4.4, "duration_s": 0.2, "fault": "rearm"},
+    {"time_s": 7.0, "duration_s": 2.0, "fault": "command_delay", "value_s": 0.08},
+    {"time_s": 10.0, "duration_s": 2.0, "fault": "packet_dropout", "probability": 0.1},
+    {"time_s": 13.0, "duration_s": 1.0, "fault": "feedback_dropout", "probability": 0.25},
+    {"time_s": 14.5, "duration_s": 0.2, "fault": "feedback_freeze"},
+    {"time_s": 14.7, "duration_s": 0.2, "fault": "rearm"},
+    {"time_s": 16.0, "duration_s": 2.0, "fault": "joint_stuck", "joint_index": 2},
+    {"time_s": 18.0, "duration_s": 0.2, "fault": "rearm"},
+    {"time_s": 20.0, "duration_s": 0.2, "fault": "timestamp_out_of_order"},
+    {"time_s": 20.2, "duration_s": 0.2, "fault": "rearm"},
+    {"time_s": 22.0, "duration_s": 0.2, "fault": "invalid_input"},
+    {"time_s": 22.2, "duration_s": 0.2, "fault": "rearm"},
+    {"time_s": 24.0, "duration_s": 0.1, "fault": "force_ik_failure"},
+    {"time_s": 24.1, "duration_s": 0.2, "fault": "rearm"},
+    {"time_s": 26.0, "duration_s": 2.0, "fault": "unreachable_target", "offset_m": [0.0, 0.0, 2.0]},
+    {"time_s": 28.0, "duration_s": 0.2, "fault": "rearm"},
+    {"time_s": 28.5, "duration_s": 0.3, "fault": "fatal_fault"},
+    {"time_s": 29.0, "duration_s": 0.1, "fault": "clear_fault"},
+    {"time_s": 29.2, "duration_s": 0.2, "fault": "rearm"}
+  ]
+}
