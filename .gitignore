@@ -1,0 +1,52 @@
+# CodeGraph database
+.codegraph/
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.lib
+*.dll
+*.exe
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+venv/
+env/
+
+# ROS
+build/
+devel/
+install/
+log/
+*.bag
+
+# Simulation runs and large data files
+windows_sim/runs/
+*.csv
+
+# Large media files
+*.gif
+*.mp4
+*.avi
+
+# CAD files (optional - uncomment if you want to exclude)
+# *.STEP
+# *.step
+# *.stl
+
+# Temporary files
+*.tmp
+*.log
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
