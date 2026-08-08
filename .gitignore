@@ -1,6 +1,9 @@
 # CodeGraph database
 .codegraph/
 
+# Documentation (large reference files)
+docs/
+
 # Build artifacts
 *.o
 *.a
