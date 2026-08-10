@@ -1,8 +1,13 @@
 # CodeGraph database
 .codegraph/
 
-# Documentation (large reference files)
-docs/
+# Documentation - large reference files only
+# Keep debug guides in the repo
+docs/datasheets/
+docs/reference/
+docs/large-pdfs/
+docs/WHEELTEC*/
+docs/野火*/
 
 # Build artifacts
 *.o

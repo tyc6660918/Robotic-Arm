@@ -2,25 +2,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "🐛 Debug T01-base",
+      "name": "🐛 rst-control-fw (ST-Link)",
       "type": "cortex-debug",
       "request": "launch",
-      "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base",
-      "executable": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base/build/T01-base.elf",
+      "cwd": "${workspaceFolder}/rst-control-fw/control",
+      "executable": "${workspaceFolder}/rst-control-fw/control/build/control.elf",
       "servertype": "openocd",
       "serverpath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
-      "searchDir": [
-        "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/openocd/scripts"
-      ],
       "configFiles": [
-        "interface/stlink.cfg",
-        "target/stm32f1x.cfg"
+        "${workspaceFolder}/openocd-configs/stlink-f103.cfg"
       ],
       "device": "STM32F103ZE",
       "interface": "swd",
       "runToEntryPoint": "main",
-      "svdFile": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base/STM32F103.svd",
-      "preLaunchTask": "🔨 Build T01-base",
       "showDevDebugOutput": "raw",
       "swoConfig": {
         "enabled": true,
@@ -35,6 +29,98 @@
           }
         ]
       }
+    },
+    {
+      "name": "🐛 rst-control-fw (CMSIS-DAP)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/rst-control-fw/control",
+      "executable": "${workspaceFolder}/rst-control-fw/control/build/control.elf",
+      "servertype": "openocd",
+      "serverpath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
+      "configFiles": [
+        "${workspaceFolder}/openocd-configs/cmsis-dap-f103.cfg"
+      ],
+      "device": "STM32F103ZE",
+      "interface": "swd",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "raw"
+    },
+    {
+      "name": "🐛 rst-control-fw (WCH-Link)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/rst-control-fw/control",
+      "executable": "${workspaceFolder}/rst-control-fw/control/build/control.elf",
+      "servertype": "openocd",
+      "serverpath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
+      "configFiles": [
+        "${workspaceFolder}/openocd-configs/wch-link-f103.cfg"
+      ],
+      "device": "STM32F103ZE",
+      "interface": "swd",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "raw"
+    },
+    {
+      "name": "🐛 dummy-ref-core-fw (ST-Link)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/firmware/dummy-ref-core-fw",
+      "executable": "${workspaceFolder}/firmware/dummy-ref-core-fw/build/REF-STM32F4-fw.elf",
+      "servertype": "openocd",
+      "serverpath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
+      "configFiles": [
+        "${workspaceFolder}/openocd-configs/stlink-f405.cfg"
+      ],
+      "device": "STM32F405RG",
+      "interface": "swd",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "raw",
+      "swoConfig": {
+        "enabled": true,
+        "cpuFrequency": 168000000,
+        "swoFrequency": 2000000,
+        "source": "probe",
+        "decoders": [
+          {
+            "type": "console",
+            "label": "ITM",
+            "port": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "🔌 Attach rst-control-fw (no build)",
+      "type": "cortex-debug",
+      "request": "attach",
+      "cwd": "${workspaceFolder}/rst-control-fw/control",
+      "executable": "${workspaceFolder}/rst-control-fw/control/build/control.elf",
+      "servertype": "openocd",
+      "serverpath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
+      "configFiles": [
+        "${workspaceFolder}/openocd-configs/stlink-f103.cfg"
+      ],
+      "device": "STM32F103ZE",
+      "interface": "swd"
+    },
+    {
+      "name": "🐛 Debug T01-base",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base",
+      "executable": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base/build/T01-base.elf",
+      "servertype": "openocd",
+      "serverpath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
+      "configFiles": [
+        "${workspaceFolder}/openocd-configs/stlink-f103.cfg"
+      ],
+      "device": "STM32F103ZE",
+      "interface": "swd",
+      "runToEntryPoint": "main",
+      "preLaunchTask": "🔨 Build T01-base",
+      "showDevDebugOutput": "raw"
     },
     {
       "name": "🐛 Debug T02-usart-dma",
@@ -44,50 +130,14 @@
       "executable": "${workspaceFolder}/cubemx-validation-test/test-builds/T02-usart-dma/build/T02-usart-dma.elf",
       "servertype": "openocd",
       "serverpath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
-      "searchDir": [
-        "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/openocd/scripts"
-      ],
       "configFiles": [
-        "interface/stlink.cfg",
-        "target/stm32f1x.cfg"
+        "${workspaceFolder}/openocd-configs/stlink-f103.cfg"
       ],
       "device": "STM32F103ZE",
       "interface": "swd",
       "runToEntryPoint": "main",
-      "svdFile": "${workspaceFolder}/cubemx-validation-test/test-builds/T02-usart-dma/STM32F103.svd",
       "preLaunchTask": "🔨 Build T02-usart-dma",
-      "showDevDebugOutput": "raw",
-      "swoConfig": {
-        "enabled": true,
-        "cpuFrequency": 72000000,
-        "swoFrequency": 2000000,
-        "source": "probe",
-        "decoders": [
-          {
-            "type": "console",
-            "label": "ITM",
-            "port": 0
-          }
-        ]
-      }
-    },
-    {
-      "name": "🔌 Attach T01-base (no build)",
-      "type": "cortex-debug",
-      "request": "attach",
-      "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base",
-      "executable": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base/build/T01-base.elf",
-      "servertype": "openocd",
-      "serverpath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
-      "searchDir": [
-        "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/openocd/scripts"
-      ],
-      "configFiles": [
-        "interface/stlink.cfg",
-        "target/stm32f1x.cfg"
-      ],
-      "device": "STM32F103ZE",
-      "interface": "swd"
+      "showDevDebugOutput": "raw"
     }
   ]
 }
