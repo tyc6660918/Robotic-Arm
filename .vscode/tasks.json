@@ -1,0 +1,213 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🔨 Build T01-base",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": {
+        "owner": "gcc",
+        "fileLocation": "absolute",
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "🔨 Build T02-usart-dma",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T02-usart-dma"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "🧹 Clean T01-base",
+      "type": "shell",
+      "command": "rm",
+      "args": ["-rf", "build"],
+      "options": {
+        "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🧹 Clean T02-usart-dma",
+      "type": "shell",
+      "command": "rm",
+      "args": ["-rf", "build"],
+      "options": {
+        "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T02-usart-dma"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "⚙️ Configure T01-base",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-B",
+        "build",
+        "-G",
+        "MinGW Makefiles",
+        "-DCMAKE_TOOLCHAIN_FILE=cmake/gcc-arm-none-eabi.cmake",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_MAKE_PROGRAM=E:/C/mingw64/bin/mingw32-make.exe"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "⚙️ Configure T02-usart-dma",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-B",
+        "build",
+        "-G",
+        "MinGW Makefiles",
+        "-DCMAKE_TOOLCHAIN_FILE=cmake/gcc-arm-none-eabi.cmake",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_MAKE_PROGRAM=E:/C/mingw64/bin/mingw32-make.exe"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T02-usart-dma"
+      },
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🔧 Clean + Configure + Build T01",
+      "dependsOn": [
+        "🧹 Clean T01-base",
+        "⚙️ Configure T01-base",
+        "🔨 Build T01-base"
+      ],
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🔧 Clean + Configure + Build T02",
+      "dependsOn": [
+        "🧹 Clean T02-usart-dma",
+        "⚙️ Configure T02-usart-dma",
+        "🔨 Build T02-usart-dma"
+      ],
+      "dependsOrder": "sequence",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "📥 Flash T01-base (OpenOCD)",
+      "type": "shell",
+      "command": "openocd",
+      "args": [
+        "-f",
+        "interface/stlink.cfg",
+        "-f",
+        "target/stm32f1x.cfg",
+        "-c",
+        "program build/T01-base.elf verify reset exit"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T01-base"
+      },
+      "dependsOn": "🔨 Build T01-base",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "📥 Flash T02-usart-dma (OpenOCD)",
+      "type": "shell",
+      "command": "openocd",
+      "args": [
+        "-f",
+        "interface/stlink.cfg",
+        "-f",
+        "target/stm32f1x.cfg",
+        "-c",
+        "program build/T02-usart-dma.elf verify reset exit"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/cubemx-validation-test/test-builds/T02-usart-dma"
+      },
+      "dependsOn": "🔨 Build T02-usart-dma",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

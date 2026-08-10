@@ -254,8 +254,8 @@ Application running ...
   --- 系统信息 ---
   MCU:       STM32F103ZET6 @ 72MHz
   UART:      USART1 @ 115200 bps
-  CAN ID:    8 (1Mbps)
-  Loop Cnt:  12345  ← 这个数字应该在增加
+  CAN ID:    8 (1Mbps)   <- 注意: 这行打印是错的, CAN 实测 562.5kbps
+  Loop Cnt:  0      ← 恒为 0，这是正常的（见下方说明）
   Motors:    3 (0=Pitch 1=UpperJaw 2=LowerJaw)
   ...
 
@@ -313,8 +313,12 @@ Application running ...
 ✅ 串口连接成功 (115200)
 ✅ 收到启动信息
 ✅ help 命令正常
-✅ info 显示 Loop Cnt 在增加
+✅ info 命令正常（Loop Cnt 恒为 0 属预期，不是故障）
 ```
+
+⚠️ **注意**：`Loop Cnt` 恒为 0 是当前固件的已知状态，不代表烧录或接线失败。
+`loop_count` 在代码里从未被累加，而且 20kHz 控制循环本身也没有启动。
+详见 `固件真实状态.md`。烧录成功的判据是能看到启动横幅并且 `help` 有响应。
 
 然后我会指导你：
 1. 接入编码器测试

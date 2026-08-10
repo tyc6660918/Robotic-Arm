@@ -13,7 +13,6 @@ docs/
 *.exe
 
 # IDE
-.vscode/
 .idea/
 
 # Python
@@ -53,3 +52,9 @@ windows_sim/runs/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Validation test directory (local testing only)
+cubemx-validation-test/
+
+# Documentation directory (already excluded above)
+# docs/ is already in .gitignore

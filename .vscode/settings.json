@@ -1,0 +1,38 @@
+{
+    "cmake.sourceDirectory": "E:/Robotic-Arm/firmware/dummy-35motor-fw",
+
+    // ARM 工具链配置
+    "cortex-debug.armToolchainPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.2 mpacbti-rel1/bin",
+    "cortex-debug.openocdPath": "C:/Users/TYC/.embedded-tools/openocd/xpack-openocd-0.12.0-7/bin/openocd.exe",
+    "cortex-debug.gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.2 mpacbti-rel1/bin/arm-none-eabi-gdb.exe",
+
+    // C/C++ IntelliSense 配置
+    "C_Cpp.default.compilerPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.2 mpacbti-rel1/bin/arm-none-eabi-gcc.exe",
+    "C_Cpp.default.intelliSenseMode": "gcc-arm",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.default.cppStandard": "c++14",
+
+    // 文件关联
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c",
+        "stm32f1xx_hal.h": "c",
+        "main.h": "c"
+    },
+
+    // 排除不需要索引的目录
+    "files.exclude": {
+        "**/build": true,
+        "**/.git": true
+    },
+    "search.exclude": {
+        "**/build": true,
+        "**/Drivers": false
+    },
+
+    // 终端配置
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.env.windows": {
+        "PATH": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.2 mpacbti-rel1/bin;E:/C/mingw64/bin;${env:PATH}"
+    }
+}
