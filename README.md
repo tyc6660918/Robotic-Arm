@@ -13,14 +13,31 @@
 **完整工作流？** 查看这里 → [`WORKFLOW.md`](WORKFLOW.md)
 
 ---
-1. 目录描述
-- **Firmware** - ref控制板、42/35驱动板源代码
-- **Hardware** - ref控制板、42/35驱动板 schematic & PCB 文件
-- **3d-model** - 所有 3D 打印文件
-- **ESP32-iot** - ESP32 支持文件
-- **rst-control-fw** - STM32F103 控制固件（带 CubeMX 配置）
-- **docs** - 调试文档、硬件资料
-- **openocd-configs** - OpenOCD 调试配置
+## 📁 项目结构
+
+### 机器人组件 (`robots/`)
+- **dummy-arm/** - Dummy机械从臂
+  - `firmware/` - STM32F103 控制固件（带 CubeMX 配置）
+  - `hardware/` - ref控制板、42/35驱动板 schematic & PCB
+  - `3d-model/` - 所有 3D 打印文件
+  - `moveit2_ws/` - ROS2 + MoveIt2 完整工作空间（仿真、规划、视觉标定）
+- **openrst-gripper/** - OpenRST夹取端
+- **u-arm/** - U-Arm主臂
+
+### 开发工具 (`tools/`)
+- **simple-cli/** - 命令行控制工具
+- **robot-viewer/** - 机器人可视化工具
+- **windows_sim/** - Windows仿真环境
+- **esp32-iot/** - ESP32 物联网支持
+
+### 调试配置 (`debug/`)
+- **openocd-configs/** - OpenOCD 调试配置
+- **.vscode/** - VSCode 调试配置
+- **guides/** - 调试指南
+
+### 文档与资源
+- **docs/** - 技术文档、硬件资料
+- **resources/** - BOM清单、图片、参考资料
 
 1. 重新设计的ref控制板
 
