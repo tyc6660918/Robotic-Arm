@@ -1,16 +1,6 @@
 {
   "workflow": {
-    "maxConcurrentAgents": 14,
+    "maxConcurrentAgents": 5,
     "agentTimeout": 600000
-  },
-  "permissions": {
-    "allow": [
-      "bash__*",
-      "read__*",
-      "write__*",
-      "edit__*",
-      "glob__*",
-      "grep__*"
-    ]
   }
 }

@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python *)",
-      "Bash(xargs '-I{}' python -c ' *)",
-      "Bash(git add *)"
-    ]
-  }
-}
