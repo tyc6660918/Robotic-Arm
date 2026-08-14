@@ -8,7 +8,7 @@
 
 **新用户？** 从这里开始 → [`START_HERE.md`](START_HERE.md)
 
-**需要调试？** 5分钟上手 → [`QUICK_START_DEBUG.md`](QUICK_START_DEBUG.md)
+**需要调试？** 5 分钟上手 → [`QUICK_START_DEBUG.md`](QUICK_START_DEBUG.md)
 
 **完整工作流？** 查看这里 → [`WORKFLOW.md`](WORKFLOW.md)
 
@@ -23,7 +23,7 @@
 - **openocd-configs** - OpenOCD 调试配置
 
 1. 重新设计的ref控制板
-![输入图片说明](images/ref.png)
+
 - 简化设计，更适合量产
 1. 修改所有1.0mm的连接器为插针1.5mm，fix原版连接器容易脱落
 1. 删除base板，将base板子集成到了主板上
