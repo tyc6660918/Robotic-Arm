@@ -1,0 +1,99 @@
+{
+  "created_at": "2026-08-08T06:16:40",
+  "metadata": {
+    "offline_only": true,
+    "serial_access": false,
+    "scenario": "mixed_session",
+    "configured_scenario": "axis_steps",
+    "session_scope": "entire_simulation_app_lifetime",
+    "scenario_runs": [
+      {
+        "name": "axis_steps",
+        "start_time_s": 28.436908600007882,
+        "end_time_s": 47.56169609999051,
+        "finished": false
+      },
+      {
+        "name": "axis_steps",
+        "start_time_s": 99.70254440000281,
+        "end_time_s": 105.65276349999476,
+        "finished": false
+      }
+    ],
+    "control_rate_hz": 100.0,
+    "filter_enabled": true,
+    "realtime": true,
+    "master_to_slave_axis_map": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dummy_urdf": "E:\\Robotic-Arm\\Moveit_ws-main\\dummy-ros2_description\\urdf\\dummy.urdf",
+    "openrst_urdf": "E:\\Robotic-Arm\\OpenRST-main\\URDF\\openrst_description\\urdf\\openrst.urdf",
+    "openrst_model": "ideal_pitch_yaw_grasp",
+    "initial_joints_deg": [
+      0.0,
+      -29.999999999999996,
+      45.0,
+      0.0,
+      29.999999999999996,
+      0.0
+    ]
+  },
+  "metrics": {
+    "samples_written": 10647,
+    "position_error_rms_m": 0.0002867238963824253,
+    "orientation_error_rms_rad": 0.0015060352823116846,
+    "position_error_max_m": 0.0023802848335841374,
+    "orientation_error_max_rad": 0.0065599703375073,
+    "ik_success_rate": 1.0,
+    "ik_attempts": 4754,
+    "cycle_period_p50_s": 0.01002310001058504,
+    "cycle_period_p99_s": 0.011748248016228884,
+    "cycle_period_samples_seen": 10647,
+    "cycle_period_reservoir_size": 10647,
+    "state_sample_counts": {
+      "READY": 1198,
+      "HOLD": 4695,
+      "TELEOP": 4754
+    },
+    "fault_reason_sample_counts": {
+      "waiting for deadman": 1198,
+      "master input timed out": 17,
+      "deadman released": 722,
+      "rearm required": 3943,
+      "clutch active": 13
+    },
+    "scenario_finished": false,
+    "simulated_duration_s": 106.90237140000681,
+    "accepted_plant_commands": 10647,
+    "dropped_plant_commands": 0,
+    "dropped_feedback_samples": 0,
+    "reset_count": 4,
+    "latest_scenario_duration_s": 5.950219099991955,
+    "joint_limit_violation_count": 0,
+    "deadline_miss_count": 30,
+    "control_loop_failed": false,
+    "control_loop_error": null,
+    "acceptance": {
+      "control_cycle_p99_under_20ms": true,
+      "control_cycle_timing_evaluated": true,
+      "ik_success_rate_at_least_99_percent": true,
+      "joint_limits_respected": true,
+      "scenario_finished": false
+    }
+  },
+  "csv": "teleop_samples.csv"
+}

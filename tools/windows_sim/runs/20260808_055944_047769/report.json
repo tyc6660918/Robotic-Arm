@@ -1,0 +1,85 @@
+{
+  "created_at": "2026-08-08T05:59:47",
+  "metadata": {
+    "offline_only": true,
+    "serial_access": false,
+    "scenario": "interactive",
+    "configured_scenario": "axis_steps",
+    "session_scope": "entire_simulation_app_lifetime",
+    "scenario_runs": [],
+    "control_rate_hz": 100.0,
+    "filter_enabled": true,
+    "realtime": true,
+    "master_to_slave_axis_map": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dummy_urdf": "E:\\Robotic-Arm\\Moveit_ws-main\\dummy-ros2_description\\urdf\\dummy.urdf",
+    "openrst_urdf": "E:\\Robotic-Arm\\OpenRST-main\\URDF\\openrst_description\\urdf\\openrst.urdf",
+    "openrst_model": "ideal_pitch_yaw_grasp",
+    "initial_joints_deg": [
+      0.0,
+      -29.999999999999996,
+      45.0,
+      0.0,
+      29.999999999999996,
+      0.0
+    ]
+  },
+  "metrics": {
+    "samples_written": 353,
+    "position_error_rms_m": 0.0004030709999370884,
+    "orientation_error_rms_rad": 0.0006624188771093281,
+    "position_error_max_m": 0.002379237387617154,
+    "orientation_error_max_rad": 0.0033075179852216905,
+    "ik_success_rate": 1.0,
+    "ik_attempts": 22,
+    "cycle_period_p50_s": 0.010019300010753796,
+    "cycle_period_p99_s": 0.014056911997031435,
+    "cycle_period_samples_seen": 353,
+    "cycle_period_reservoir_size": 353,
+    "state_sample_counts": {
+      "READY": 5,
+      "HOLD": 326,
+      "TELEOP": 22
+    },
+    "fault_reason_sample_counts": {
+      "waiting for deadman": 5,
+      "master input timed out": 13,
+      "deadman released": 1,
+      "rearm required": 312
+    },
+    "scenario_finished": false,
+    "simulated_duration_s": 3.548498499993002,
+    "accepted_plant_commands": 353,
+    "dropped_plant_commands": 0,
+    "dropped_feedback_samples": 0,
+    "reset_count": 0,
+    "latest_scenario_duration_s": null,
+    "joint_limit_violation_count": 0,
+    "deadline_miss_count": 1,
+    "control_loop_failed": false,
+    "control_loop_error": null,
+    "acceptance": {
+      "control_cycle_p99_under_20ms": true,
+      "control_cycle_timing_evaluated": true,
+      "ik_success_rate_at_least_99_percent": true,
+      "joint_limits_respected": true,
+      "scenario_finished": false
+    }
+  },
+  "csv": "teleop_samples.csv"
+}

@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-08-08T03:55:21",
+  "metadata": {
+    "offline_only": true,
+    "serial_access": false,
+    "scenario": "figure_eight",
+    "control_rate_hz": 100.0,
+    "filter_enabled": true,
+    "dummy_urdf": "E:\\Robotic-Arm\\Moveit_ws-main\\dummy-ros2_description\\urdf\\dummy.urdf",
+    "openrst_urdf": "E:\\Robotic-Arm\\OpenRST-main\\URDF\\openrst_description\\urdf\\openrst.urdf",
+    "openrst_model": "ideal_pitch_yaw_grasp",
+    "initial_joints_deg": [
+      0.0,
+      -29.999999999999996,
+      45.0,
+      0.0,
+      29.999999999999996,
+      0.0
+    ]
+  },
+  "metrics": {
+    "samples_written": 2000,
+    "position_error_rms_m": 0.0008034087263106071,
+    "orientation_error_rms_rad": 0.00559175805325783,
+    "position_error_max_m": 0.0013138793445619209,
+    "orientation_error_max_rad": 0.009495872324075805,
+    "ik_success_rate": 1.0,
+    "ik_attempts": 1900,
+    "cycle_period_p50_s": 0.007273900002473965,
+    "cycle_period_p99_s": 0.012170167001022492,
+    "cycle_period_samples_seen": 2000,
+    "cycle_period_reservoir_size": 2000,
+    "state_sample_counts": {
+      "READY": 99,
+      "TELEOP": 1900,
+      "HOLD": 1
+    },
+    "fault_reason_sample_counts": {
+      "waiting for deadman": 99,
+      "deadman released": 1
+    },
+    "scenario_finished": true,
+    "simulated_duration_s": 20.000000000000327,
+    "accepted_plant_commands": 2000,
+    "dropped_plant_commands": 0,
+    "dropped_feedback_samples": 0,
+    "joint_limit_violation_count": 0,
+    "deadline_miss_count": 3
+  },
+  "csv": "teleop_samples.csv"
+}

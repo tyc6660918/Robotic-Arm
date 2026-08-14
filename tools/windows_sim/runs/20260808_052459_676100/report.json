@@ -1,0 +1,93 @@
+{
+  "created_at": "2026-08-08T05:26:13",
+  "metadata": {
+    "offline_only": true,
+    "serial_access": false,
+    "scenario": "mixed_session",
+    "configured_scenario": "axis_steps",
+    "session_scope": "entire_simulation_app_lifetime",
+    "scenario_runs": [
+      {
+        "name": "axis_steps",
+        "start_time_s": 39.60475940001197,
+        "end_time_s": 63.61292230000254,
+        "finished": true
+      }
+    ],
+    "control_rate_hz": 100.0,
+    "filter_enabled": false,
+    "realtime": true,
+    "master_to_slave_axis_map": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dummy_urdf": "E:\\Robotic-Arm\\Moveit_ws-main\\dummy-ros2_description\\urdf\\dummy.urdf",
+    "openrst_urdf": "E:\\Robotic-Arm\\OpenRST-main\\URDF\\openrst_description\\urdf\\openrst.urdf",
+    "openrst_model": "ideal_pitch_yaw_grasp",
+    "initial_joints_deg": [
+      0.0,
+      -29.999999999999996,
+      45.0,
+      0.0,
+      29.999999999999996,
+      0.0
+    ]
+  },
+  "metrics": {
+    "samples_written": 7294,
+    "position_error_rms_m": 0.00038496197856010487,
+    "orientation_error_rms_rad": 0.0029804624270455713,
+    "position_error_max_m": 0.0018202996782363105,
+    "orientation_error_max_rad": 0.013665022723685978,
+    "ik_success_rate": 1.0,
+    "ik_attempts": 2888,
+    "cycle_period_p50_s": 0.010002150003856514,
+    "cycle_period_p99_s": 0.017421927000832508,
+    "cycle_period_samples_seen": 7294,
+    "cycle_period_reservoir_size": 7294,
+    "state_sample_counts": {
+      "READY": 823,
+      "HOLD": 3583,
+      "TELEOP": 2888
+    },
+    "fault_reason_sample_counts": {
+      "waiting for deadman": 823,
+      "master input timed out": 3,
+      "deadman released": 2586,
+      "clutch active": 197,
+      "rearm required": 797
+    },
+    "scenario_finished": false,
+    "simulated_duration_s": 73.08246400000644,
+    "accepted_plant_commands": 7294,
+    "dropped_plant_commands": 0,
+    "dropped_feedback_samples": 0,
+    "reset_count": 1,
+    "latest_scenario_duration_s": 24.008162899990566,
+    "joint_limit_violation_count": 0,
+    "deadline_miss_count": 24,
+    "control_loop_failed": false,
+    "control_loop_error": null,
+    "acceptance": {
+      "control_cycle_p99_under_20ms": true,
+      "control_cycle_timing_evaluated": true,
+      "ik_success_rate_at_least_99_percent": true,
+      "joint_limits_respected": true,
+      "scenario_finished": false
+    }
+  },
+  "csv": "teleop_samples.csv"
+}
