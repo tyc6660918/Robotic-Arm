@@ -6,11 +6,11 @@
 
 ## 🚀 快速开始
 
-**新用户？** 从这里开始 → [`START_HERE.md`](START_HERE.md)
+**新用户？** 从这里开始 → [`docs/getting-started/README.md`](docs/getting-started/README.md)
 
-**需要调试？** 5 分钟上手 → [`QUICK_START_DEBUG.md`](QUICK_START_DEBUG.md)
+**需要调试？** 5 分钟上手 → [`docs/getting-started/debugging.md`](docs/getting-started/debugging.md)
 
-**完整工作流？** 查看这里 → [`WORKFLOW.md`](WORKFLOW.md)
+**完整工作流？** 查看这里 → [`docs/getting-started/workflow.md`](docs/getting-started/workflow.md)
 
 ---
 ## 📁 项目结构
@@ -36,7 +36,7 @@
 - **guides/** - 调试指南
 
 ### 文档与资源
-- **docs/** - 技术文档、硬件资料
+- **docs/** - 📚 [技术文档索引](docs/INDEX.md)
 - **resources/** - BOM清单、图片、参考资料
 
 1. 重新设计的ref控制板
@@ -87,10 +87,11 @@ bash test-connection.sh
 ```
 
 **详细文档:**
-- [`QUICK_START_DEBUG.md`](QUICK_START_DEBUG.md) - 5 分钟快速上手
-- [`WORKFLOW.md`](WORKFLOW.md) - 完整开发工作流
-- [`docs/DEBUGGING_GUIDE.md`](docs/DEBUGGING_GUIDE.md) - 完整调试教程
-- [`docs/CLAUDE_REMOTE_DEBUG.md`](docs/CLAUDE_REMOTE_DEBUG.md) - AI 远程协助
+- [`docs/getting-started/debugging.md`](docs/getting-started/debugging.md) - 5 分钟快速上手
+- [`docs/getting-started/workflow.md`](docs/getting-started/workflow.md) - 完整开发工作流
+- [`docs/guides/debugging-complete.md`](docs/guides/debugging-complete.md) - 完整调试教程
+- [`docs/guides/claude-debug.md`](docs/guides/claude-debug.md) - AI 远程协助
+- [`docs/guides/hardware-setup.md`](docs/guides/hardware-setup.md) - 硬件连接详细步骤
 
 ---
 

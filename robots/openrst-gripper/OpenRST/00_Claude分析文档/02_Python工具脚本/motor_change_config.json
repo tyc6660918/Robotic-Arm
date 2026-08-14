@@ -1,0 +1,103 @@
+{
+  "project_info": {
+    "name": "OpenRST Drive Unit Motor Replacement",
+    "assembly_path": "E:\\Robotic-Arm\\OpenRST-main\\CAD Files\\drive_unit\\SolidWorks\\Assemblies\\drive_unit.SLDASM",
+    "description": "Cable-driven robotic surgical tool drive unit"
+  },
+
+  "current_motor": {
+    "manufacturer": "Maxon",
+    "model": "RE10 1.5W 10mm",
+    "type": "Brushless DC Motor",
+    "specifications": {
+      "diameter_mm": 10,
+      "length_mm": "TBD",
+      "shaft_diameter_mm": "TBD",
+      "shaft_length_mm": "TBD",
+      "max_torque_mNm": 3,
+      "mounting_type": "planetary_gearbox",
+      "encoder": {
+        "type": "incremental",
+        "resolution_cpt": 16
+      }
+    },
+    "gearbox": {
+      "pitch_joint": {
+        "model": "Maxon GP10A",
+        "ratio": "1:256"
+      },
+      "jaw_joints": {
+        "model": "Maxon GP10A",
+        "ratio": "1:64"
+      }
+    },
+    "gear_ratios": {
+      "pitch_joint": "36:32 (driving:driven)",
+      "jaw_joints": "40:40 (driving:driven)"
+    }
+  },
+
+  "new_motor": {
+    "manufacturer": "",
+    "model": "",
+    "specifications": {
+      "diameter_mm": 0,
+      "length_mm": 0,
+      "shaft_diameter_mm": 0,
+      "shaft_length_mm": 0,
+      "max_torque_mNm": 0,
+      "mounting_type": "",
+      "encoder": {
+        "type": "",
+        "resolution_cpt": 0
+      }
+    },
+    "notes": "待用户提供新电机信息"
+  },
+
+  "affected_components": {
+    "critical": [
+      "motor_base.SLDPRT",
+      "coupling_M2_M4.SLDPRT",
+      "actuation_disk_M0.SLDPRT",
+      "actuation_disk_M1.SLDPRT",
+      "actuation_disk_M2.SLDPRT",
+      "drive_unit_base.SLDPRT"
+    ],
+    "potentially_affected": [
+      "attachment_base.SLDPRT",
+      "drive_unit_side_cover_a.SLDPRT",
+      "drive_unit_side_cover_b.SLDPRT",
+      "drive_unit_top_cover.SLDPRT"
+    ]
+  },
+
+  "modification_checklist": {
+    "mechanical": [
+      "电机安装孔位置和尺寸",
+      "电机轴直径匹配（联轴器/齿轮）",
+      "电机长度和外径空间检查",
+      "重心位置变化（惯性矩）",
+      "齿轮啮合中心距调整",
+      "线缆布线空间",
+      "散热空间考虑"
+    ],
+    "electrical": [
+      "编码器信号兼容性",
+      "电机驱动器匹配（ESCON 36/2 DC）",
+      "接线端子位置",
+      "控制板接口"
+    ],
+    "control": [
+      "编码器分辨率变化对控制精度的影响",
+      "扭矩输出变化对力控制的影响",
+      "PID参数重新调整",
+      "校准程序更新"
+    ],
+    "performance": [
+      "最大抓取力变化（目标10N）",
+      "位置跟踪误差影响",
+      "响应速度变化"
+    ]
+  }
+}
