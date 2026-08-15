@@ -1,2 +1,4 @@
-# Harmonic reducer parameters
-Manufacturer can be found at https://shop427011383.taobao.com/shop/view_shop.htm?shop_id=427011383&spm=a21m98.27004841 
+# 文档说明
+
+本目录说明文档已中文化，请查阅：
+- [中文入口文档](./谐波减速器技术参数说明.md)

@@ -1,10 +1,4 @@
-**Useful commands**
+# 文档说明
 
-```c
- make build
-./esputil mkhex 0x8000 build/partition_table/partition-table.bin 0x1000 build/bootloader/bootloader.bin 0x100000 build/mongoose-esp32-example.bin > bridge.hex
-./esputil -fspi 6,17,8,11,16  -p /dev/cu.usbserial-0001 flash bridge.hex
-```
-
-reference
-https://mongoose.ws/documentation/tutorials/uart-bridge/
+本目录说明文档已中文化，请查阅：
+- [中文入口文档](./ESP32物联网工具说明.md)

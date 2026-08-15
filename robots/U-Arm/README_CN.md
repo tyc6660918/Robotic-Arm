@@ -1,6 +1,6 @@
 # 🤖 Lerobot Anything
 
-[![en](https://img.shields.io/badge/lang-en-blue.svg)](README.md)
+[![en](https://img.shields.io/badge/lang-en-blue.svg)](U臂项目总览.md)
 [![中文](https://img.shields.io/badge/lang-中文-brown.svg)](README_CN.md)
 [![ROS Noetic](https://img.shields.io/badge/ROS-Noetic-brightgreen.svg)](https://www.ros.org/)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)

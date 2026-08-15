@@ -1,3 +1,4 @@
-# Belts caculation tools
-1. https://jp.misumi-ec.com/tbtp/FA_WEB/pulley_cn/?rid=article
-1. http://gaigibelt.com/competitionDetail/id/424.html
+# 文档说明
+
+本目录说明文档已中文化，请查阅：
+- [中文入口文档](./物料清单说明.md)

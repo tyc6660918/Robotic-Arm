@@ -4,20 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "994775a300130a37",
+        "id": "66c29b37da64bf75",
         "type": "tabs",
         "children": [
           {
-            "id": "a3d320a3d602ce0b",
+            "id": "5083ad5f565e1361",
             "type": "leaf",
             "state": {
-              "type": "bases",
-              "state": {
-                "file": "未命名.base",
-                "viewName": "表格"
-              },
-              "icon": "lucide-table",
-              "title": "未命名"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -187,7 +184,7 @@
       "bases:新建数据库": false
     }
   },
-  "active": "a3d320a3d602ce0b",
+  "active": "da0c05b338301913",
   "lastOpenFiles": [
     "未命名.canvas",
     "未命名.base",

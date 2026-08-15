@@ -1,172 +1,209 @@
-# 快速开始 - 使用 DAP 下载器 + CH340 串口
-
-## 🔌 你的硬件配置
-
-- ✅ DAP 下载器（CMSIS-DAP）
-- ✅ CH340 USB-UART 转换器
-- ✅ 野火霸道开发板（STM32F103ZET6）
+# 快速启动规程（DAP 下载器 + CH340 串口版本）
 
 ---
 
-## 第一步：硬件连接（5分钟）
+## 区域用途
 
-### 1. DAP 下载器连接
+本规程用于指导使用 CMSIS-DAP 下载器与 CH340 USB-UART 转换器的操作人员完成 STM32 固件的首次编译、烧录与基础测试，验证 MCU 最小系统与串口通信功能。本阶段不连接电机与驱动板，仅执行基础功能验证。
+
+---
+
+## 关键文件
+
+| 文件路径 | 说明 |
+|---------|------|
+| `CubeMX工程配置指南.md` | CubeMX 外设配置详细说明 |
+| `固件真实状态.md` | 固件实际状态核实报告，含已知问题说明 |
+| `接线教程.md` | 硬件接线操作规程 |
+| `00-安全第一.md` | 安全操作规范 |
+| `设备识别检查.md` | 设备识别检查操作规程 |
+
+---
+
+## 当前进展
+
+（本章节用于记录启动流程的执行进展）
+
+---
+
+## 已完成功能
+
+（本章节用于记录已完成的验证项目）
+
+---
+
+## 未完成工作
+
+（本章节用于记录待执行的验证项目）
+
+---
+
+## 使用说明
+
+### 硬件配置要求
+- CMSIS-DAP 下载器
+- CH340 USB-UART 转换器
+- 野火霸道开发板（STM32F103ZET6）
+
+---
+
+### 第一步：硬件连接（预计 5 分钟）
+
+#### 1. DAP 下载器连接
 
 | DAP 引脚 | 野火板 SWD 接口 | 说明 |
 |---------|---------------|------|
 | SWDIO | SWDIO | 数据线 |
 | SWCLK | SWCLK | 时钟线 |
 | GND | GND | 地线 |
-| 3.3V | 3.3V (可选) | 供电 |
+| 3.3V | 3.3V（可选） | 供电引脚 |
 
-💡 **提示**：
-- 野火板上有专门的 SWD 接口，通常是 4pin 或 5pin 排针
-- DAP 直接插上去即可，注意防呆设计
-- 如果板子有独立供电（USB 或 12V），DAP 的 3.3V 可以不接
+**说明：**
+- 野火板设有专用 SWD 接口（通常为 4pin 或 5pin 排针）
+- DAP 设备可直接插接，注意接口防呆方向
+- 若开发板采用独立供电方案（USB 或 12V），则 DAP 的 3.3V 引脚可不予连接
 
-### 2. CH340 串口连接
+#### 2. CH340 串口连接
 
 | CH340 引脚 | 野火板引脚 | 说明 |
 |-----------|-----------|------|
 | TXD | PA10 (RX1) | 交叉连接 |
 | RXD | PA9 (TX1) | 交叉连接 |
 | GND | GND | 公共地 |
-| VCC | 不接 | CH340 从 USB 取电 |
+| VCC | 不连接 | CH340 通过 USB 端口供电 |
 
-💡 **提示**：
-- **TX 接 RX，RX 接 TX**（交叉连接）
-- 野火板上通常有标注 USART1 的接口
-- CH340 红色灯亮表示供电正常
+**说明：**
+- TXD 与 RXD 需交叉连接（发送端接接收端）
+- 野火板通常标注 USART1 接口位置
+- CH340 红色指示灯点亮表明供电正常
 
-### 3. 供电
+#### 3. 供电方案
 
-#### 方式 1：USB 供电（推荐用于测试）
+**方案 1：USB 供电（推荐用于测试场景）**
 ```
-电脑 USB → 野火板 USB 接口
+电脑 USB 端口 → 野火板 USB 接口
 ```
-- 仅供 MCU 工作
-- **不能带电机负载**
+- 仅为 MCU 提供工作电源
+- **不可用于驱动电机负载**
 
-#### 方式 2：12V 外部电源（实际使用）
+**方案 2：12V 外部电源（实际运行场景）**
 ```
-12V DC 电源 → 野火板电源接口（注意正负极）
+12V DC 电源 → 野火板电源接口（接入前确认正负极）
 ```
 
-### 4. 连接检查清单
+#### 4. 连接状态检查清单
 ```
-□ DAP 插入野火板 SWD 接口
-□ DAP 通过 USB 连接电脑（DAP 上 LED 应该亮）
-□ CH340 连接 PA9/PA10（TX↔RX 交叉）
-□ CH340 通过 USB 连接电脑（CH340 上红灯亮）
-□ 野火板 USB 供电 或 12V 外部电源
-□ 暂时不接电机、驱动板、编码器
+□ DAP 已插入野火板 SWD 接口
+□ DAP 已通过 USB 连接电脑（DAP 指示灯应点亮）
+□ CH340 已连接 PA9/PA10（TX 与 RX 交叉连接）
+□ CH340 已通过 USB 连接电脑（CH340 红色指示灯应点亮）
+□ 野火板已通过 USB 或 12V 外部电源供电
+□ 电机、驱动板、编码器暂不连接
 ```
 
 ---
 
-## 第二步：安装驱动（5分钟）
+### 第二步：驱动程序安装（预计 5 分钟）
 
-### 1. DAP 驱动（Windows）
-- DAP 通常免驱动（使用 WinUSB）
-- 如需手动安装，使用 **Zadig** 工具
-  1. 下载 Zadig: https://zadig.akeo.ie/
-  2. 插入 DAP，打开 Zadig
+#### 1. DAP 驱动程序（Windows 环境）
+- 多数 DAP 设备免驱动（操作系统内置 WinUSB 支持）
+- 若需手动安装，使用 **Zadig** 工具执行以下操作：
+  1. 下载 Zadig 工具：访问 https://zadig.akeo.ie/
+  2. 插入 DAP 设备，运行 Zadig 程序
   3. 选择 CMSIS-DAP 设备
-  4. 选择 WinUSB 驱动
-  5. 点击 "Install Driver"
+  4. 驱动选择 WinUSB
+  5. 点击 "Install Driver" 按钮
 
-### 2. CH340 驱动
-在你的文档中有驱动：
+#### 2. CH340 驱动程序
+驱动程序归档位置：
 ```
 docs/WHEELTEC 直流电机附送资料/编码器测试教程/2.软件工具/3.常见串口驱动程序/
 1.CH340驱动(USB串口驱动)_XP_WIN7_WIN8_WIN10共用.rar
 ```
 
-安装完成后：
-- 打开 **设备管理器**
-- **端口(COM 和 LPT)** 下应该看到：
-  ```
-  USB-SERIAL CH340 (COMx)
-  ```
-- 记住端口号，比如 **COM3**
+安装完成后验证：
+- 打开 Windows **设备管理器**
+- 进入 **端口(COM 和 LPT)** 分类
+- 应显示 `USB-SERIAL CH340 (COMx)` 条目
+- 记录实际端口号（示例：COM3）
 
 ---
 
-## 第三步：Keil 配置 DAP（3分钟）
+### 第三步：Keil DAP 配置（预计 3 分钟）
 
-### 1. 打开项目
+#### 1. 打开工程文件
 ```
-双击: MDK-ARM/rst-control-fw.uvprojx
+双击打开：MDK-ARM/rst-control-fw.uvprojx
 ```
 
-### 2. 配置下载器
+#### 2. 配置下载器参数
 - 点击工具栏 **Options for Target** 按钮（魔术棒图标）
-- 切换到 **Debug** 选项卡
+- 切换至 **Debug** 选项卡
 - 下拉菜单选择：**CMSIS-DAP Debugger**
 - 点击右侧 **Settings** 按钮
-- **Debug** 选项卡：
-  - Port: 选择 **SW**（不是 JTAG）
-  - Max Clock: 保持默认 10MHz 或改为 4MHz
-- **Flash Download** 选项卡：
-  - 勾选 **Reset and Run**
-  - 勾选 **Erase Full Chip**（首次烧录）
-- 点击 **OK** → **OK**
+  - **Debug** 选项卡：
+    - Port：选择 **SW**（非 JTAG 模式）
+    - Max Clock：保持默认 10MHz 或调整为 4MHz
+  - **Flash Download** 选项卡：
+    - 勾选 **Reset and Run**
+    - 勾选 **Erase Full Chip**（首次烧录场景）
+- 点击 **OK** → **OK** 确认配置
 
 ---
 
-## 第四步：CubeMX 配置（10分钟）
+### 第四步：CubeMX 工程配置（预计 10 分钟）
 
-### ⚠️ 重要：必须先配置 TIM6 和 ADC
+**注意：** TIM6 与 ADC 配置为必需操作项。
 
-1. 打开项目：
+#### 1. 打开工程文件
 ```
-双击: rst-control-fw.ioc
+双击打开：rst-control-fw.ioc
 ```
 
-2. 配置 **TIM6**（20kHz 控制循环）：
-   - 左侧 **Timers** → **TIM6**
-   - 勾选 `Activated`
-   - **Parameter Settings**:
-     - Prescaler: `35`
-     - Counter Period: `99`
-   - **NVIC Settings**:
-     - 勾选 `TIM6 global interrupt`
-     - Priority: `0`
+#### 2. 配置 TIM6 定时器（20kHz 控制循环）
+- 左侧导航栏 **Timers** → 选择 **TIM6**
+- 勾选 `Activated` 选项
+- **Parameter Settings** 配置：
+  - Prescaler：`35`
+  - Counter Period：`99`
+- **NVIC Settings** 配置：
+  - 勾选 `TIM6 global interrupt`
+  - Priority：`0`（最高优先级）
 
-3. 配置 **ADC1 + DMA**（电流采样）：
-   - 左侧 **Analog** → **ADC1**
-   - **Mode**: 勾选 IN3, IN4, IN5
-   - **Parameter Settings**:
-     - Scan Conversion: `Enable`
-     - Continuous Conversion: `Enable`
-     - DMA Continuous Requests: `Enable`
-     - Number of Conversion: `3`
-   - **DMA Settings** → **Add**:
-     - DMA Request: `ADC1`
-     - Mode: `Circular`
-     - Data Width: `Half Word` (两个都选)
+#### 3. 配置 ADC1 与 DMA（电流采样）
+- 左侧导航栏 **Analog** → 选择 **ADC1**
+- **Mode** 设置：勾选 IN3、IN4、IN5
+- **Parameter Settings** 配置：
+  - Scan Conversion：`Enable`
+  - Continuous Conversion：`Enable`
+  - DMA Continuous Requests：`Enable`
+  - Number of Conversion：`3`
+- **DMA Settings** → 点击 **Add** 按钮：
+  - DMA Request：`ADC1`
+  - Mode：`Circular`
+  - Data Width：`Half Word`（两项均为此配置）
 
-4. 生成代码：
-   - 点击右上角 **GENERATE CODE**
-   - 等待完成
+#### 4. 生成工程代码
+- 点击右上角 **GENERATE CODE** 按钮
+- 等待代码生成完成
 
 ---
 
-## 第五步：Keil 编译（5分钟）
+### 第五步：Keil 工程编译（预计 5 分钟）
 
-### 1. 添加新文件
-- 左侧 **Project** 窗口
-- 右键 `Application/User/Core` → `Add Existing Files to Group`
-- 选择并添加：
-  - `Core/Src/control_loop.c` ✅
-  - `Core/Src/tim6.c` ✅
+#### 1. 添加源文件至工程
+- 在左侧 **Project** 窗口中
+- 右键点击 `Application/User/Core` → 选择 `Add Existing Files to Group`
+- 选择并添加以下文件：
+  - `Core/Src/control_loop.c`
+  - `Core/Src/tim6.c`
 
-### 2. 编译
+#### 2. 执行编译
 ```
-按 F7 或点击 Build 图标
+按 F7 键或点击工具栏 Build 图标
 ```
 
-应该看到：
+编译通过判定标准：
 ```
 0 Error(s), 0 Warning(s)
 Program Size: Code=xxxxx RO-data=xxx RW-data=xxx ZI-data=xxx
@@ -174,19 +211,19 @@ Program Size: Code=xxxxx RO-data=xxx RW-data=xxx ZI-data=xxx
 
 ---
 
-## 第六步：烧录固件（2分钟）
+### 第六步：固件烧录（预计 2 分钟）
 
-### 1. 检查连接
-- DAP 连接到野火板 SWD
-- 野火板已通电
-- Keil 已识别 DAP（设备管理器中看到 CMSIS-DAP）
+#### 1. 确认连接状态
+- DAP 已连接野火板 SWD 接口
+- 野火板已上电
+- Keil 已识别 DAP 设备（设备管理器显示 CMSIS-DAP）
 
-### 2. 下载
+#### 2. 执行下载
 ```
-按 F8 或点击 Download 图标
+按 F8 键或点击工具栏 Download 图标
 ```
 
-应该看到：
+烧录通过判定标准：
 ```
 Load "...\rst-control-fw.axf"
 Erase Done
@@ -195,43 +232,43 @@ Verify OK
 Application running ...
 ```
 
-### 3. 如果失败
-| 错误 | 解决 |
-|------|------|
-| No CMSIS-DAP device found | 重新插拔 DAP，检查驱动 |
-| Flash Download failed | 点击 Erase Full Chip 再试 |
-| RDDI-DAP Error | 降低 Max Clock 到 1MHz |
+#### 3. 烧录异常处置
+| 错误信息 | 处置方法 |
+|---------|---------|
+| No CMSIS-DAP device found | 重新插拔 DAP 设备，检查驱动状态 |
+| Flash Download failed | 执行 Erase Full Chip 后重试 |
+| RDDI-DAP Error | 将 Max Clock 参数降至 1MHz 后重试 |
 
 ---
 
-## 第七步：串口测试（2分钟）
+### 第七步：串口通信测试（预计 2 分钟）
 
-### 1. 打开串口工具
-推荐：
-- **SSCOM** (串口调试助手)
-- **Tera Term**
-- **MobaXterm**
-- **PuTTY**
+#### 1. 启动串口终端工具
+推荐工具（任选其一）：
+- SSCOM（串口调试助手）
+- Tera Term
+- MobaXterm
+- PuTTY
 
-### 2. 配置串口
+#### 2. 串口参数配置
 ```
-端口：COM3 (你的实际端口号)
+端口号：COMx（使用实际分配的端口号）
 波特率：115200
 数据位：8
 停止位：1
-校验：None
+校验位：None
 流控：None
 ```
 
-### 3. 连接并复位
-- 点击 **打开串口**
-- 按野火板上的 **RESET** 按钮
+#### 3. 建立连接并复位
+- 点击 **打开串口** 按钮
+- 按下野火板上的 **RESET** 按钮复位 MCU
 
 ---
 
-## 🎉 成功标志
+### 验证通过判定标准
 
-### 你应该看到：
+串口终端应显示以下启动信息：
 ```
 ========================================
   RST Motor Controller - Debug Console
@@ -241,7 +278,7 @@ Application running ...
 >
 ```
 
-### 测试命令
+#### 功能测试命令
 ```
 > help
   --- 可用命令 ---
@@ -254,77 +291,73 @@ Application running ...
   --- 系统信息 ---
   MCU:       STM32F103ZET6 @ 72MHz
   UART:      USART1 @ 115200 bps
-  CAN ID:    8 (1Mbps)   <- 注意: 这行打印是错的, CAN 实测 562.5kbps
-  Loop Cnt:  0      ← 恒为 0，这是正常的（见下方说明）
+  CAN ID:    8 (1Mbps)   <- 注意：该行打印信息有误，CAN 实际波特率为 562.5kbps
+  Loop Cnt:  0      ← 恒为 0，属预期状态（参见下方说明）
   Motors:    3 (0=Pitch 1=UpperJaw 2=LowerJaw)
   ...
 
 > led 1 blink
-  LED1 闪烁 5 次完成  ← 如果板上有 LED 会闪烁
+  LED1 闪烁 5 次完成  ← 若板载对应 LED 已连接则会闪烁
 ```
+
+**说明：** `Loop Cnt` 字段恒为 0 属于当前固件已知状态，非烧录或接线故障。
+`loop_count` 变量在代码中未执行自增操作，且 20kHz 控制循环未实际启动。
+详细说明参见 `固件真实状态.md`。烧录成功的判据为启动横幅正常显示且 `help` 命令有响应。
 
 ---
 
-## ❌ 常见问题
+### 常见异常处置
 
-### 1. DAP 无法识别
-```
-解决：
-1. 重新插拔 DAP USB
-2. 使用 Zadig 安装 WinUSB 驱动
-3. 更换 USB 线或 USB 口
-```
+#### 1. DAP 无法识别
+处置流程：
+1. 重新插拔 DAP 设备 USB 接口
+2. 使用 Zadig 工具安装 WinUSB 驱动
+3. 更换 USB 线缆或 USB 接口重试
 
-### 2. 串口无输出
-```
-检查：
-1. CH340 驱动是否安装
-2. 波特率是否 115200
-3. TX/RX 是否交叉连接
-4. 按 RESET 按钮重启 MCU
-```
+#### 2. 串口无输出
+排查顺序：
+1. 确认 CH340 驱动程序已正确安装
+2. 确认波特率配置为 115200
+3. 确认 TX/RX 已正确交叉连接
+4. 按下 RESET 按钮重启 MCU
 
-### 3. 编译错误
+#### 3. 编译错误
 ```
-错误: undefined reference to TIM6_IRQHandler
-解决: 回到第四步，重新在 CubeMX 中配置 TIM6
+错误信息：undefined reference to TIM6_IRQHandler
+处置方法：返回第四步，重新在 CubeMX 中配置 TIM6
 ```
 
-### 4. 烧录卡住
-```
-解决：
-1. Keil Debug 设置中降低时钟到 1MHz
+#### 4. 烧录过程卡顿
+处置流程：
+1. 在 Keil Debug 设置中将时钟频率降至 1MHz
 2. 检查 SWD 接线是否牢固
-3. 尝试 Erase Full Chip
-```
+3. 尝试执行 Erase Full Chip 操作
 
 ---
 
-## ✅ 测试完成后告诉我
+## 风险与局限
 
-格式：
-```
-✅ DAP 已连接，Keil 识别正常
-✅ CH340 已连接（COM端口: COM3）
-✅ 野火板已通电
-✅ CubeMX 配置完成（TIM6 + ADC）
-✅ Keil 编译成功 (0 Error)
-✅ 固件烧录成功
-✅ 串口连接成功 (115200)
-✅ 收到启动信息
-✅ help 命令正常
-✅ info 命令正常（Loop Cnt 恒为 0 属预期，不是故障）
-```
-
-⚠️ **注意**：`Loop Cnt` 恒为 0 是当前固件的已知状态，不代表烧录或接线失败。
-`loop_count` 在代码里从未被累加，而且 20kHz 控制循环本身也没有启动。
-详见 `固件真实状态.md`。烧录成功的判据是能看到启动横幅并且 `help` 有响应。
-
-然后我会指导你：
-1. 接入编码器测试
-2. 接入电机驱动
-3. 进行电机测试
+- 当前固件处于开发阶段，Loop Cnt 恒为 0 为预期状态，不可作为控制环运行判据
+- 阶段 1 通过仅表明 MCU 与串口链路正常，不可直接推断电机、编码器等外围功能可用
+- 完成阶段 1 验证后，不可直接进入电机连接测试，需先按 `固件真实状态.md` 修复阻塞性问题
 
 ---
 
-**现在开始吧！接好 DAP 和 CH340，按步骤来！** 🚀
+## 依赖关系
+
+| 依赖项目 | 版本要求 |
+|---------|---------|
+| STM32CubeMX | 6.x 及以上版本 |
+| Keil MDK-ARM | 5.x 及以上版本，含 STM32F1xx 器件支持包 |
+| Zadig 工具 | 用于 DAP WinUSB 驱动安装（可选） |
+| 串口终端工具 | SSCOM / Tera Term / MobaXterm / PuTTY 任选 |
+
+---
+
+## 后续建议
+
+阶段 1 验证通过后，建议按以下顺序执行后续操作：
+1. 接入编码器并执行编码器读数测试
+2. 接入电机驱动板并执行 PWM 输出测试
+3. 连接电机并执行电机转动测试
+4. 建议对各阶段执行结果进行截图存档
