@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "66c29b37da64bf75",
+        "id": "dc6018daae2576db",
         "type": "tabs",
         "children": [
           {
-            "id": "5083ad5f565e1361",
+            "id": "2df825b28a890f15",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -184,8 +184,12 @@
       "bases:新建数据库": false
     }
   },
-  "active": "da0c05b338301913",
+  "active": "2df825b28a890f15",
   "lastOpenFiles": [
+    "docs/getting-started/开发工作流程.md",
+    "robots/U-Arm/src/simulation/mani_skill/examples/bimanual.openarm/README.md",
+    "robots/openrst-gripper/OpenRST/00_Claude分析文档/快速导航.md",
+    "robots/U-Arm/src/simulation/mani_skill/examples/benchmarking/README.md",
     "未命名.canvas",
     "未命名.base",
     "HANDOVER.md",
