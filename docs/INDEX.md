@@ -7,5 +7,3 @@
 - [OpenRST 夹爪](current/OpenRST夹爪.md)
 - [U-Arm 主臂](current/U-Arm主臂.md)
 - [仿真与调试验证](current/仿真与调试验证.md)
-
-旧版说明、专题拆分稿和过程记录不纳入当前提交，也不作为当前依据。
